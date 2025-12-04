@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="colorPrimary">#2E7D32</color>
+    <color name="colorPrimaryVariant">#000000</color>
+    <color name="colorSecondary">#FF6F00</color>
+    <color name="colorSecondaryVariant">#FF9800</color>
+    <color name="white_fixo">#FFFFFF</color>
+    <color name="black_fixo">#000000</color>
+
+    <color name="green_light">#1B5E20</color>
+    <color name="green_dark_text">#A5D6A7</color>
+
+    <color name="bg_tela">#121212</color>
+    <color name="bg_cartao">#1E1E1E</color>
+    <color name="texto_principal">#FFFFFF</color>
+    <color name="texto_secundario">#B0B0B0</color>
+</resources>

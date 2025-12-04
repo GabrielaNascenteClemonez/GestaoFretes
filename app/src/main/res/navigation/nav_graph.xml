@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/listaViagensFragment">
+
+    <fragment
+        android:id="@+id/listaViagensFragment"
+        android:name="com.example.myapplication.ListaViagensFragment"
+        android:label="Meus Fretes"
+        tools:layout="@layout/fragment_lista_viagens">
+
+        <action
+            android:id="@+id/action_lista_para_nova"
+            app:destination="@id/novaViagemFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_lista_para_detalhe"
+            app:destination="@id/detalheViagemFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/novaViagemFragment"
+        android:name="com.example.myapplication.NovaViagemFragment"
+        android:label="Nova Viagem"
+        tools:layout="@layout/fragment_nova_viagem" />
+
+    <fragment
+        android:id="@+id/detalheViagemFragment"
+        android:name="com.example.myapplication.DetalheViagemFragment"
+        android:label="Detalhes da Viagem"
+        tools:layout="@layout/fragment_detalhe_viagem">
+
+        <argument
+            android:name="viagemId"
+            app:argType="long" />
+
+        <action
+            android:id="@+id/action_detalhe_para_nova_despesa"
+            app:destination="@id/novaDespesaFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/novaDespesaFragment"
+        android:name="com.example.myapplication.NovaDespesaFragment"
+        android:label="Nova Despesa"
+        tools:layout="@layout/fragment_nova_despesa">
+        <argument
+            android:name="viagemId"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listaGastosFragment"
+        android:name="com.example.myapplication.ListaGastosFragment"
+        android:label="Gastos Gerais"
+        tools:layout="@layout/fragment_lista_gastos">
+
+        <action
+            android:id="@+id/action_lista_gastos_para_novo_gasto"
+            app:destination="@id/novoGastoGeralFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/novoGastoGeralFragment"
+        android:name="com.example.myapplication.NovoGastoGeralFragment"
+        android:label="Novo Gasto Geral"
+        tools:layout="@layout/fragment_novo_gasto_geral" />
+
+    <fragment
+        android:id="@+id/resumoFragment"
+        android:name="com.example.myapplication.ResumoFragment"
+        android:label="Resumo Financeiro"
+        tools:layout="@layout/fragment_resumo" />
+
+</navigation>

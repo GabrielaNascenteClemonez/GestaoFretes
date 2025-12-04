@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F5F5F5"
+    tools:context=".ResumoFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/view_header_resumo"
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:background="@drawable/bg_header_gradient"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_titulo_resumo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Resumo Financeiro"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_periodo_atual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Geral"
+            android:textColor="#B3FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintStart_toStartOf="@id/text_titulo_resumo"
+            app:layout_constraintTop_toBottomOf="@id/text_titulo_resumo" />
+
+        <Button
+            android:id="@+id/btn_alterar_mes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📅 Mudar"
+            android:textColor="@color/white"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/text_titulo_resumo"
+            app:layout_constraintBottom_toBottomOf="@id/text_periodo_atual"
+            android:layout_marginEnd="16dp"/>
+
+        <TextView
+            android:id="@+id/label_saldo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saldo Líquido"
+            android:textColor="#E0E0E0"
+            android:textSize="14sp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_periodo_atual" />
+
+        <TextView
+            android:id="@+id/text_saldo_final"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="R$ 0,00"
+            android:textColor="@color/white"
+            android:textSize="42sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/label_saldo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_filtros"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="24dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:layout_constraintTop_toBottomOf="@id/text_saldo_final">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chip_group_filtro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                app:singleSelection="true"
+                app:selectionRequired="true"
+                android:gravity="center">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_hoje"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hoje" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_semana"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="7 Dias" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_mes"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mês" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_todos"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Total" />
+            </com.google.android.material.chip.ChipGroup>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_fretes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/card_filtros">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_arrow_up"
+                    app:tint="#2E7D32"
+                    android:background="#E8F5E9"
+                    android:padding="8dp"/>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Receita de Fretes"
+                        android:textSize="14sp"
+                        android:textColor="#757575"/>
+
+                    <TextView
+                        android:id="@+id/text_total_fretes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="R$ 0,00"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#2E7D32"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_despesas_viagem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/card_fretes">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_arrow_down"
+                    app:tint="#C62828"
+                    android:background="#FFEBEE"
+                    android:padding="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Despesas de Viagem"
+                        android:textSize="14sp"
+                        android:textColor="#757575"/>
+
+                    <TextView
+                        android:id="@+id/text_total_despesas_viagem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="R$ 0,00"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#C62828"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_gastos_gerais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/card_despesas_viagem">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_gastos"
+                    app:tint="#E65100"
+                    android:background="#FFF3E0"
+                    android:padding="8dp"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gastos Gerais (Manutenção)"
+                        android:textSize="14sp"
+                        android:textColor="#757575"/>
+
+                    <TextView
+                        android:id="@+id/text_total_gastos_gerais"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="R$ 0,00"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#E65100"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            android:id="@+id/btn_gerar_pdf_resumo"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="16dp"
+            android:text="📄 Gerar Relatório do Período"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:backgroundTint="@color/colorSecondary"
+            app:layout_constraintTop_toBottomOf="@id/card_gastos_gerais"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
